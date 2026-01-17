@@ -83,8 +83,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
+        sans: ["'Montserrat'", "sans-serif"],
+        serif: ["'Playfair Display'", "serif"],
+        script: ["'Great Vibes'", "cursive"],
         mono: ["var(--font-mono)"],
       },
       keyframes: {
