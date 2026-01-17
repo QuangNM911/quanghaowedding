@@ -233,6 +233,63 @@ export default function Home() {
             <RsvpForm />
           </Section>
 
+          {/* Wedding Gift Box */}
+          <Section className="bg-secondary/20">
+            <SectionHeader title="Hộp Mừng Cưới" subtitle="Wedding Gift" />
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10 max-w-2xl mx-auto">
+                <p className="text-muted-foreground italic">
+                  "Hạnh phúc của chúng mình là được đón tiếp bạn. Nếu bạn muốn gửi tặng một món quà nhỏ để chúc mừng, 
+                  xin hãy sử dụng mã QR dưới đây. Mọi sự quan tâm và tình cảm của các bạn đều là món quà vô giá đối với chúng mình."
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Groom's QR */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 rounded-3xl shadow-xl border border-border flex flex-col items-center text-center"
+                >
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <Heart className="w-8 h-8 text-primary fill-primary" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold mb-2">Chú rể Văn Nam</h3>
+                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng MB Bank<br/>STK: 0988xxxxxx</p>
+                  <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
+                    <img 
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=STK-CHU-RE" 
+                      alt="Groom QR" 
+                      className="w-48 h-48 object-contain"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Bride's QR */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-8 rounded-3xl shadow-xl border border-border flex flex-col items-center text-center"
+                >
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <Heart className="w-8 h-8 text-primary fill-primary" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold mb-2">Cô dâu Ngọc Nhi</h3>
+                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng Techcombank<br/>STK: 1903xxxxxx</p>
+                  <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
+                    <img 
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=STK-CO-DAU" 
+                      alt="Bride QR" 
+                      className="w-48 h-48 object-contain"
+                    />
+                  </div>
+                </motion.div>
+              </div>
+
+              <div className="mt-12 text-center">
+                <p className="font-script text-3xl text-primary">Trân trọng cảm ơn!</p>
+              </div>
+            </div>
+          </Section>
+
           {/* Footer */}
           <footer className="bg-primary text-primary-foreground py-12 text-center">
             <h2 className="font-script text-5xl mb-4">Thank You!</h2>
