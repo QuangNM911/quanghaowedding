@@ -1,14 +1,15 @@
-import { useState, useRef, useEffect } from "react";
+﻿﻿import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Calendar, MapPin, Clock } from "lucide-react";
 import { useAudio } from "@/hooks/use-audio";
 import { Section, SectionHeader } from "@/components/Section";
 import { Gallery } from "@/components/Gallery";
-import { RsvpForm } from "@/components/RsvpForm";
 import { MusicPlayer } from "@/components/MusicPlayer";
 
 // Placeholder audio URL - use a royalty free wedding track
-const BG_MUSIC_URL = "https://cdn.pixabay.com/download/audio/2022/10/18/audio_31c2730e64.mp3";
+const BG_MUSIC_URL = "/audios/background.mp3";
+const GROOM_MAP_URL = "https://maps.app.goo.gl/MkdpCoA3c5XcqdFLA";
+const BRIDE_MAP_URL = "https://maps.app.goo.gl/aQZbrAk1x6uzZAKr8";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,12 +44,12 @@ export default function Home() {
               
               <div className="space-y-4 mb-8">
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground font-serif">
-                  Văn Nam
+                  Minh Quang
                   <span className="block text-2xl text-primary my-2 font-script">&</span>
-                  Ngọc Nhi
+                  Nguyễn Hảo
                 </h1>
                 <p className="text-muted-foreground uppercase tracking-widest text-sm">
-                  01 . 02 . 2026
+                  08 . 02 . 2026
                 </p>
               </div>
 
@@ -80,7 +81,7 @@ export default function Home() {
             <div className="absolute inset-0 z-0">
               {/* Couple Hero Image */}
               <img 
-                src="https://pixabay.com/get/gbbfda781bfa14a91884b39c27e92f976106f0d5a26a4c20008b4aa5043c02e7728d1f6c1a4ec6d54495a696eeb32dd879a83fe4c6c8397b3df97ea55ca49adce_1280.jpg" 
+                src="/images/banner.jpeg" 
                 alt="Couple" 
                 className="w-full h-full object-cover brightness-[0.7]"
               />
@@ -92,15 +93,15 @@ export default function Home() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                <p className="font-script text-3xl md:text-5xl mb-4 text-white/90">Chúng mình kết hôn!</p>
+                <p className="font-script text-3xl md:text-5xl mb-4 text-primary">Chúng mình kết hôn!</p>
                 <h1 className="font-serif text-5xl md:text-8xl font-bold mb-6 text-shadow-lg">
-                  Văn Nam <span className="text-primary-foreground/80">&</span> Ngọc Nhi
+                  Minh Quang <span className="text-primary-foreground">&</span> Nguyễn Hảo
                 </h1>
-                <div className="inline-flex items-center gap-4 text-lg md:text-xl font-light tracking-widest border-t border-b border-white/30 py-4 px-8 backdrop-blur-sm bg-white/10 rounded-full">
-                  <span>01</span>
-                  <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                <div className="inline-flex items-center gap-4 text-primary text-lg md:text-xl font-light tracking-widest border-t border-b border-white/30 py-4 px-8 backdrop-blur-sm bg-white/30 rounded-full">
+                  <span>08</span>
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                   <span>02</span>
-                  <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                   <span>2026</span>
                 </div>
               </motion.div>
@@ -120,7 +121,7 @@ export default function Home() {
           </section>
 
           {/* Introduction */}
-          <Section className="bg-white">
+          <Section className="bg-secondary/20">
             <SectionHeader title="Lời Ngỏ" subtitle="Hân hoan báo tin vui" />
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
@@ -135,10 +136,15 @@ export default function Home() {
                   whileHover={{ y: -5 }}
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
+                  <img
+                    src="/images/chure.JPG"
+                    alt="Chú rể Minh Quang"
+                    className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
+                  />
+                  <p className="font-serif text-xl font-bold text-foreground mb-1">Minh Quang</p>
                   <h3 className="font-serif text-2xl font-bold text-primary mb-2">Nhà Trai</h3>
                   <div className="w-12 h-0.5 bg-primary/30 mx-auto mb-4" />
-                  <p className="font-semibold text-foreground">Ông: Trần Văn Bố</p>
-                  <p className="font-semibold text-foreground">Bà: Nguyễn Thị Mẹ</p>
+                  <p className="font-semibold text-foreground">Bà: Nguyễn Thị Khai</p>
                   <p className="mt-4 text-muted-foreground italic">Trân trọng báo tin</p>
                 </motion.div>
 
@@ -147,10 +153,16 @@ export default function Home() {
                   whileHover={{ y: -5 }}
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
+                  <img
+                    src="/images/codau.JPG"
+                    alt="Cô dâu Nguyễn Hảo"
+                    className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
+                  />
+                  <p className="font-serif text-xl font-bold text-foreground mb-1">Nguyễn Hảo</p>
                   <h3 className="font-serif text-2xl font-bold text-primary mb-2">Nhà Gái</h3>
                   <div className="w-12 h-0.5 bg-primary/30 mx-auto mb-4" />
-                  <p className="font-semibold text-foreground">Ông: Lê Văn Cha</p>
-                  <p className="font-semibold text-foreground">Bà: Phạm Thị Mẫu</p>
+                  <p className="font-semibold text-foreground">Ông: Nguyễn Văn Miu</p>
+                  <p className="font-semibold text-foreground">Bà: Đỗ Thị Trang</p>
                   <p className="mt-4 text-muted-foreground italic">Trân trọng báo tin</p>
                 </motion.div>
               </div>
@@ -158,7 +170,7 @@ export default function Home() {
           </Section>
 
           {/* Love Story Timeline */}
-          <Section className="bg-secondary/20">
+          <Section className="bg-white">
             <SectionHeader title="Chuyện Tình Yêu" subtitle="Hành trình của chúng mình" />
             <div className="max-w-4xl mx-auto relative">
               {/* Vertical Line */}
@@ -166,32 +178,32 @@ export default function Home() {
 
               <div className="space-y-16">
                 <TimelineItem 
-                  year="2022"
-                  title="Lần Đầu Gặp Gỡ"
-                  description="Một chiều thu Hà Nội, ánh mắt vô tình chạm nhau tại quán cà phê góc phố cổ."
+                  year="12/2024"
+                  title="Lần Đầu Làm Quen"
+                  description="Lời chúc sinh nhật cuối ngày hôm ấy là điểm khởi đầu của tất cả"
                   align="left"
-                  img="https://images.unsplash.com/photo-1516575150278-77136aed6920?w=400&q=80"
+                  img="/images/story-1.jpg"
                 />
                 <TimelineItem 
-                  year="2023"
+                  year="2/2025"
                   title="Chính Thức Hẹn Hò"
-                  description="Lời tỏ tình vụng về nhưng chân thành đã mở đầu cho những ngày tháng ngọt ngào."
+                  description="Lời tỏ tình vụng về nhưng chân thành đã mở đầu cho những ngày tháng ngọt ngào"
                   align="right"
-                  img="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&q=80"
+                  img="/images/story-2.jpg"
                 />
                 <TimelineItem 
-                  year="2025"
+                  year="12/2025"
                   title="Lời Cầu Hôn"
-                  description="Dưới ánh nến lung linh, anh đã quỳ xuống và em đã nói 'Em đồng ý'."
+                  description="Chẳng có một lời cụ thể, chỉ đơn giản là 2 trái tim đã muốn về chung 1 nhà"
                   align="left"
-                  img="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&q=80"
+                  img="/images/story-3.jpg"
                 />
               </div>
             </div>
           </Section>
 
           {/* Gallery */}
-          <Section className="bg-white">
+          <Section className="bg-secondary/20">
             <SectionHeader title="Album Ảnh Cưới" subtitle="Những khoảnh khắc đẹp nhất" />
             <div className="max-w-6xl mx-auto">
               <Gallery />
@@ -199,38 +211,28 @@ export default function Home() {
           </Section>
 
           {/* Events */}
-          <Section className="bg-secondary/20">
+          <Section className="bg-white">
             <SectionHeader title="Sự Kiện" subtitle="Chương trình lễ cưới" />
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
               <EventCard 
-                title="Lễ Vu Quy"
-                time="08:30 - 10:30"
-                date="01/02/2026"
+                title=""
+                time="08:00 - 09:00"
+                date="07/02/2026"
                 location="Tư gia nhà gái"
-                address="123 Đường Nguyễn Trãi, Thanh Xuân, Hà Nội"
-                img="https://images.unsplash.com/photo-1519225468359-294316dd56f4?w=800&q=80"
+                address="thôn Cẩm Vực, xã Ngũ Kiên"
+                img="/images/anhoi.png"
+                mapUrl={BRIDE_MAP_URL}
               />
               <EventCard 
-                title="Tiệc Cưới"
-                time="11:00 - 13:30"
-                date="01/02/2026"
-                location="Trung tâm Tiệc cưới Royal"
-                address="456 Đường Láng, Đống Đa, Hà Nội"
-                img="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80"
+                title=""
+                time="09:30 - 13:30"
+                date="08/02/2026"
+                location="Tư gia nhà trai"
+                address="đường Nguyễn Tiến Sách, xã Tứ Trưng"
+                img="/images/cuoi.png"
+                mapUrl={GROOM_MAP_URL}
               />
             </div>
-          </Section>
-
-          {/* RSVP */}
-          <Section className="bg-white">
-            <SectionHeader title="Xác Nhận Tham Dự" subtitle="RSVP" />
-            <div className="text-center mb-8 max-w-2xl mx-auto">
-              <p className="text-muted-foreground">
-                Sự hiện diện của bạn là niềm vinh hạnh lớn nhất đối với gia đình chúng tôi. 
-                Vui lòng xác nhận tham dự trước ngày <span className="font-bold text-primary">25/01/2026</span>.
-              </p>
-            </div>
-            <RsvpForm />
           </Section>
 
           {/* Wedding Gift Box */}
@@ -253,11 +255,11 @@ export default function Home() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Heart className="w-8 h-8 text-primary fill-primary" />
                   </div>
-                  <h3 className="font-serif text-2xl font-bold mb-2">Chú rể Văn Nam</h3>
-                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng MB Bank<br/>STK: 0988xxxxxx</p>
+                  <h3 className="font-serif text-2xl font-bold mb-2">Chú rể Minh Quang</h3>
+                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng VCB<br/>STK: 1024198898</p>
                   <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
                     <img 
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=STK-CHU-RE" 
+                      src="/images/chure_bank.jpg" 
                       alt="Groom QR" 
                       className="w-48 h-48 object-contain"
                     />
@@ -272,11 +274,11 @@ export default function Home() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <Heart className="w-8 h-8 text-primary fill-primary" />
                   </div>
-                  <h3 className="font-serif text-2xl font-bold mb-2">Cô dâu Ngọc Nhi</h3>
-                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng Techcombank<br/>STK: 1903xxxxxx</p>
+                  <h3 className="font-serif text-2xl font-bold mb-2">Cô dâu Nguyễn Hảo</h3>
+                  <p className="text-sm text-muted-foreground mb-6">Ngân hàng MB<br/>STK: 0000940360351</p>
                   <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
                     <img 
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=STK-CO-DAU" 
+                      src="/images/codau_bank.jpg" 
                       alt="Bride QR" 
                       className="w-48 h-48 object-contain"
                     />
@@ -293,10 +295,7 @@ export default function Home() {
           {/* Footer */}
           <footer className="bg-primary text-primary-foreground py-12 text-center">
             <h2 className="font-script text-5xl mb-4">Thank You!</h2>
-            <p className="font-serif text-xl">Văn Nam & Ngọc Nhi</p>
-            <div className="mt-8 text-sm opacity-60">
-              © 2026 Wedding Invitation. Made with ❤️
-            </div>
+            <p className="font-serif text-xl">Minh Quang & Nguyễn Hảo</p>
           </footer>
         </motion.main>
       )}
@@ -333,8 +332,8 @@ function TimelineItem({ year, title, description, align, img }: {
   );
 }
 
-function EventCard({ title, time, date, location, address, img }: { 
-  title: string, time: string, date: string, location: string, address: string, img: string 
+function EventCard({ title, time, date, location, address, img, mapUrl }: { 
+  title: string, time: string, date: string, location: string, address: string, img: string, mapUrl?: string 
 }) {
   return (
     <motion.div 
@@ -368,7 +367,7 @@ function EventCard({ title, time, date, location, address, img }: {
           </div>
         </div>
         <a 
-          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+          href={mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full py-3 text-center rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors"

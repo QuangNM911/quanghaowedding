@@ -4,17 +4,17 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const photos = [
   // Wedding couple walking in forest
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+  "/images/anhcuoi-01.JPG",
   // Close up of holding hands with rings
-  "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80",
+  "/images/anhcuoi-02.JPG",
   // Couple laughing together
-  "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&q=80",
+  "/images/anhcuoi-03.JPG",
   // Bride portrait
-  "https://images.unsplash.com/photo-1509927083803-4bd519298ac4?w=800&q=80",
+  "/images/anhcuoi-04.JPG",
   // Wedding decorations/flowers
-  "https://images.unsplash.com/photo-1522673607200-1645062cd495?w=800&q=80",
+  "/images/anhcuoi-05.JPG",
   // Groom portrait
-  "https://images.unsplash.com/photo-1507038792570-639892c23535?w=800&q=80",
+  "/images/anhcuoi-06.JPG",
 ];
 
 export function Gallery() {
