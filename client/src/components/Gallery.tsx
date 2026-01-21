@@ -2,19 +2,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+const ASSET_BASE_URL = import.meta.env.BASE_URL;
 const photos = [
   // Wedding couple walking in forest
-  "/images/anhcuoi-01.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-01.JPG`,
   // Close up of holding hands with rings
-  "/images/anhcuoi-02.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-02.JPG`,
   // Couple laughing together
-  "/images/anhcuoi-03.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-03.JPG`,
   // Bride portrait
-  "/images/anhcuoi-04.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-04.JPG`,
   // Wedding decorations/flowers
-  "/images/anhcuoi-05.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-05.JPG`,
   // Groom portrait
-  "/images/anhcuoi-06.JPG",
+  `${ASSET_BASE_URL}images/anhcuoi-06.JPG`,
 ];
 
 export function Gallery() {

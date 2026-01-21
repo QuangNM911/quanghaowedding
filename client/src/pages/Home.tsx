@@ -6,8 +6,9 @@ import { Section, SectionHeader } from "@/components/Section";
 import { Gallery } from "@/components/Gallery";
 import { MusicPlayer } from "@/components/MusicPlayer";
 
+const ASSET_BASE_URL = import.meta.env.BASE_URL;
 // Placeholder audio URL - use a royalty free wedding track
-const BG_MUSIC_URL = "/audios/background.mp3";
+const BG_MUSIC_URL = `${ASSET_BASE_URL}audios/background.mp3`;
 const GROOM_MAP_URL = "https://maps.app.goo.gl/MkdpCoA3c5XcqdFLA";
 const BRIDE_MAP_URL = "https://maps.app.goo.gl/aQZbrAk1x6uzZAKr8";
 
@@ -81,7 +82,7 @@ export default function Home() {
             <div className="absolute inset-0 z-0">
               {/* Couple Hero Image */}
               <img 
-                src="/images/banner.jpeg" 
+                src={`${ASSET_BASE_URL}images/banner.jpeg`} 
                 alt="Couple" 
                 className="w-full h-full object-cover brightness-[0.7]"
               />
@@ -137,7 +138,7 @@ export default function Home() {
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
                   <img
-                    src="/images/chure.JPG"
+                    src={`${ASSET_BASE_URL}images/chure.JPG`}
                     alt="Chú rể Minh Quang"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
@@ -154,7 +155,7 @@ export default function Home() {
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
                   <img
-                    src="/images/codau.JPG"
+                    src={`${ASSET_BASE_URL}images/codau.JPG`}
                     alt="Cô dâu Nguyễn Hảo"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
@@ -182,21 +183,21 @@ export default function Home() {
                   title="Lần Đầu Làm Quen"
                   description="Lời chúc sinh nhật cuối ngày hôm ấy là điểm khởi đầu của tất cả"
                   align="left"
-                  img="/images/story-1.jpg"
+                  img={`${ASSET_BASE_URL}images/story-1.jpg`}
                 />
                 <TimelineItem 
                   year="2/2025"
                   title="Chính Thức Hẹn Hò"
                   description="Lời tỏ tình vụng về nhưng chân thành đã mở đầu cho những ngày tháng ngọt ngào"
                   align="right"
-                  img="/images/story-2.jpg"
+                  img={`${ASSET_BASE_URL}images/story-2.jpg`}
                 />
                 <TimelineItem 
                   year="12/2025"
                   title="Lời Cầu Hôn"
                   description="Chẳng có một lời cụ thể, chỉ đơn giản là 2 trái tim đã muốn về chung 1 nhà"
                   align="left"
-                  img="/images/story-3.jpg"
+                  img={`${ASSET_BASE_URL}images/story-3.jpg`}
                 />
               </div>
             </div>
@@ -220,7 +221,7 @@ export default function Home() {
                 date="07/02/2026"
                 location="Tư gia nhà gái"
                 address="thôn Cẩm Vực, xã Ngũ Kiên"
-                img="/images/anhoi.png"
+                img={`${ASSET_BASE_URL}images/anhoi.png`}
                 mapUrl={BRIDE_MAP_URL}
               />
               <EventCard 
@@ -229,7 +230,7 @@ export default function Home() {
                 date="08/02/2026"
                 location="Tư gia nhà trai"
                 address="đường Nguyễn Tiến Sách, xã Tứ Trưng"
-                img="/images/cuoi.png"
+                img={`${ASSET_BASE_URL}images/cuoi.png`}
                 mapUrl={GROOM_MAP_URL}
               />
             </div>
@@ -259,7 +260,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-6">Ngân hàng VCB<br/>STK: 1024198898</p>
                   <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
                     <img 
-                      src="/images/chure_bank.jpg" 
+                      src={`${ASSET_BASE_URL}images/chure_bank.jpg`} 
                       alt="Groom QR" 
                       className="w-48 h-48 object-contain"
                     />
@@ -278,7 +279,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-6">Ngân hàng MB<br/>STK: 0000940360351</p>
                   <div className="relative p-4 bg-white border-2 border-primary/20 rounded-2xl shadow-inner">
                     <img 
-                      src="/images/codau_bank.jpg" 
+                      src={`${ASSET_BASE_URL}images/codau_bank.jpg`} 
                       alt="Bride QR" 
                       className="w-48 h-48 object-contain"
                     />
