@@ -82,7 +82,7 @@ export default function Home() {
             <div className="absolute inset-0 z-0">
               {/* Couple Hero Image */}
               <img 
-                src={`${ASSET_BASE_URL}images/banner.jpeg`} 
+                src={`${ASSET_BASE_URL}images/banner.webp`} 
                 alt="Couple" 
                 className="w-full h-full object-cover brightness-[0.7]"
               />
@@ -138,7 +138,7 @@ export default function Home() {
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
                   <img
-                    src={`${ASSET_BASE_URL}images/chure.JPG`}
+                    src={`${ASSET_BASE_URL}images/chure.webp`}
                     alt="Chú rể Minh Quang"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
@@ -155,7 +155,7 @@ export default function Home() {
                   className="p-6 rounded-2xl bg-secondary/30 border border-secondary"
                 >
                   <img
-                    src={`${ASSET_BASE_URL}images/codau.JPG`}
+                    src={`${ASSET_BASE_URL}images/codau.webp`}
                     alt="Cô dâu Nguyễn Hảo"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
@@ -183,21 +183,21 @@ export default function Home() {
                   title="Lần Đầu Làm Quen"
                   description="Lời chúc sinh nhật cuối ngày hôm ấy là điểm khởi đầu của tất cả"
                   align="left"
-                  img={`${ASSET_BASE_URL}images/story-1.jpg`}
+                  img={`${ASSET_BASE_URL}images/story-1.webp`}
                 />
                 <TimelineItem 
                   year="2/2025"
                   title="Chính Thức Hẹn Hò"
                   description="Lời tỏ tình vụng về nhưng chân thành đã mở đầu cho những ngày tháng ngọt ngào"
                   align="right"
-                  img={`${ASSET_BASE_URL}images/story-2.jpg`}
+                  img={`${ASSET_BASE_URL}images/story-2.webp`}
                 />
                 <TimelineItem 
                   year="12/2025"
                   title="Lời Cầu Hôn"
                   description="Chẳng có một lời cụ thể, chỉ đơn giản là 2 trái tim đã muốn về chung 1 nhà"
                   align="left"
-                  img={`${ASSET_BASE_URL}images/story-3.jpg`}
+                  img={`${ASSET_BASE_URL}images/story-3.webp`}
                 />
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function Home() {
                 date="07/02/2026"
                 location="Tư gia nhà gái"
                 address="thôn Cẩm Vực, xã Ngũ Kiên"
-                img={`${ASSET_BASE_URL}images/anhoi.png`}
+                img={`${ASSET_BASE_URL}images/anhoi.webp`}
                 mapUrl={BRIDE_MAP_URL}
               />
               <EventCard 
@@ -230,7 +230,7 @@ export default function Home() {
                 date="08/02/2026"
                 location="Tư gia nhà trai"
                 address="đường Nguyễn Tiến Sách, xã Tứ Trưng"
-                img={`${ASSET_BASE_URL}images/cuoi.png`}
+                img={`${ASSET_BASE_URL}images/vuquy.webp`}
                 mapUrl={GROOM_MAP_URL}
               />
             </div>
