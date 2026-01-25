@@ -8,7 +8,7 @@ import { MusicPlayer } from "@/components/MusicPlayer";
 
 const ASSET_BASE_URL = import.meta.env.BASE_URL;
 // Placeholder audio URL - use a royalty free wedding track
-const BG_MUSIC_URL = `${ASSET_BASE_URL}audios/background.mp3`;
+const BG_MUSIC_URL = `${ASSET_BASE_URL}audios/nhac.mp3`;
 const GROOM_MAP_URL = "https://maps.app.goo.gl/MkdpCoA3c5XcqdFLA";
 const BRIDE_MAP_URL = "https://maps.app.goo.gl/aQZbrAk1x6uzZAKr8";
 
