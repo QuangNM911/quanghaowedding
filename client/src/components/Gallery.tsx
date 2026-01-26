@@ -5,17 +5,17 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 const ASSET_BASE_URL = import.meta.env.BASE_URL;
 const photos = [
   // Wedding couple walking in forest
-  `${ASSET_BASE_URL}images/anhcuoi-01.webp`,
+  `${ASSET_BASE_URL}images/anhcuoi-06.webp`,
   // Close up of holding hands with rings
-  `${ASSET_BASE_URL}images/anhcuoi-02.webp`,
-  // Couple laughing together
   `${ASSET_BASE_URL}images/anhcuoi-03.webp`,
-  // Bride portrait
+  // Couple laughing together
   `${ASSET_BASE_URL}images/anhcuoi-04.webp`,
+  // Bride portrait
+  `${ASSET_BASE_URL}images/anhcuoi-01.webp`,
   // Wedding decorations/flowers
   `${ASSET_BASE_URL}images/anhcuoi-05.webp`,
   // Groom portrait
-  `${ASSET_BASE_URL}images/anhcuoi-06.webp`,
+  `${ASSET_BASE_URL}images/anhcuoi-02.webp`,
 ];
 
 export function Gallery() {
