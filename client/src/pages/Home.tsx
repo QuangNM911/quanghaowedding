@@ -1,9 +1,9 @@
 ﻿﻿import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { Heart, Calendar, MapPin, Clock } from "lucide-react";
 import { useAudio } from "@/hooks/use-audio";
 import { Section, SectionHeader } from "@/components/Section";
-import { Gallery } from "@/components/Gallery";
 import { MusicPlayer } from "@/components/MusicPlayer";
 
 const ASSET_BASE_URL = import.meta.env.BASE_URL;
@@ -11,10 +11,32 @@ const ASSET_BASE_URL = import.meta.env.BASE_URL;
 const BG_MUSIC_URL = `${ASSET_BASE_URL}audios/nhac.mp3`;
 const GROOM_MAP_URL = "https://maps.app.goo.gl/MkdpCoA3c5XcqdFLA";
 const BRIDE_MAP_URL = "https://maps.app.goo.gl/aQZbrAk1x6uzZAKr8";
+const LazyGallery = lazy(() =>
+  import("@/components/Gallery").then((mod) => ({ default: mod.Gallery })),
+);
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
   const { isPlaying, play, toggle } = useAudio(BG_MUSIC_URL);
+
+  useEffect(() => {
+    if (!isOpen || showGallery) return;
+    const target = galleryRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowGallery(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [isOpen, showGallery]);
   
   const handleOpenInvitation = () => {
     setIsOpen(true);
@@ -84,6 +106,9 @@ export default function Home() {
               <img 
                 src={`${ASSET_BASE_URL}images/banner.webp`} 
                 alt="Couple" 
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover brightness-[0.7]"
               />
             </div>
@@ -140,6 +165,8 @@ export default function Home() {
                   <img
                     src={`${ASSET_BASE_URL}images/chure.webp`}
                     alt="Chú rể Minh Quang"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
                   <p className="font-serif text-xl font-bold text-foreground mb-1">Minh Quang</p>
@@ -157,6 +184,8 @@ export default function Home() {
                   <img
                     src={`${ASSET_BASE_URL}images/codau.webp`}
                     alt="Cô dâu Nguyễn Hảo"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full max-w-[240px] aspect-[4/5] rounded-xl object-cover mx-auto mb-4 border-4 border-primary/20 shadow-md"
                   />
                   <p className="font-serif text-xl font-bold text-foreground mb-1">Nguyễn Hảo</p>
@@ -206,8 +235,14 @@ export default function Home() {
           {/* Gallery */}
           <Section className="bg-secondary/20">
             <SectionHeader title="Album Ảnh Cưới" subtitle="Những khoảnh khắc đẹp nhất" />
-            <div className="max-w-6xl mx-auto">
-              <Gallery />
+            <div ref={galleryRef} className="max-w-6xl mx-auto">
+              {showGallery ? (
+                <Suspense fallback={<div className="h-48" />}>
+                  <LazyGallery />
+                </Suspense>
+              ) : (
+                <div className="h-48" />
+              )}
             </div>
           </Section>
 
@@ -262,6 +297,8 @@ export default function Home() {
                     <img 
                       src={`${ASSET_BASE_URL}images/chure_bank.jpg`} 
                       alt="Groom QR" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-48 h-48 object-contain"
                     />
                   </div>
@@ -281,6 +318,8 @@ export default function Home() {
                     <img 
                       src={`${ASSET_BASE_URL}images/codau_bank.jpg`} 
                       alt="Bride QR" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-48 h-48 object-contain"
                     />
                   </div>
@@ -326,7 +365,13 @@ function TimelineItem({ year, title, description, align, img }: {
       </div>
       <div className="flex-1">
         <div className={`relative aspect-video rounded-xl overflow-hidden shadow-lg ${align === 'left' ? 'rotate-2' : '-rotate-2'} hover:rotate-0 transition-transform duration-500`}>
-          <img src={img} alt={title} className="w-full h-full object-cover" />
+          <img
+            src={img}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </motion.div>
@@ -346,6 +391,8 @@ function EventCard({ title, time, date, location, address, img, mapUrl }: {
         <img 
           src={img} 
           alt={title} 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         />
         <div className="absolute bottom-4 left-4 z-20 text-white">

@@ -49,6 +49,8 @@ export function Gallery() {
             <img 
               src={src} 
               alt="Wedding moment" 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
@@ -91,6 +93,7 @@ export function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               src={photos[selectedIdx]}
               alt="Full screen view"
+              decoding="async"
               className="max-h-[85vh] max-w-full rounded shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
